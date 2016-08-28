@@ -503,11 +503,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     //#define TOUCH_PROBE_RETRACT_3_FEEDRATE HOMING_FEEDRATE_Z
 
     // Kossel Pro
-    #define TOUCH_PROBE_DEPLOY_1_X -105.00 // Move left but not quite so far that we'll bump the belt
+    #define TOUCH_PROBE_DEPLOY_1_X -100.00 // Move left but not quite so far that we'll bump the belt
     #define TOUCH_PROBE_DEPLOY_1_Y 0.00
     #define TOUCH_PROBE_DEPLOY_1_Z 100.0
     #define TOUCH_PROBE_DEPLOY_1_FEEDRATE HOMING_FEEDRATE_X
-    #define TOUCH_PROBE_DEPLOY_2_X -110.00 // Move outward to position deploy pin to the left of the arm
+    #define TOUCH_PROBE_DEPLOY_2_X -100.00 // Move outward to position deploy pin to the left of the arm
     #define TOUCH_PROBE_DEPLOY_2_Y -125.00
     #define TOUCH_PROBE_DEPLOY_2_Z 100.0
     #define TOUCH_PROBE_DEPLOY_2_FEEDRATE HOMING_FEEDRATE_X
@@ -516,18 +516,22 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     #define TOUCH_PROBE_DEPLOY_3_Z 100.0
     #define TOUCH_PROBE_DEPLOY_3_FEEDRATE (HOMING_FEEDRATE_X/2)
 
-    #define TOUCH_PROBE_RETRACT_1_X 36.00 // Line up with bed retaining clip
-    #define TOUCH_PROBE_RETRACT_1_Y -122.00
+    #define TOUCH_PROBE_RETRACT_1_X 40.00 // Line up with bed retaining clip
+    #define TOUCH_PROBE_RETRACT_1_Y -125.00
     #define TOUCH_PROBE_RETRACT_1_Z 75.0
     #define TOUCH_PROBE_RETRACT_1_FEEDRATE HOMING_FEEDRATE_X
-    #define TOUCH_PROBE_RETRACT_2_X 36.00 // move down to retract probe
-    #define TOUCH_PROBE_RETRACT_2_Y -122.00
-    #define TOUCH_PROBE_RETRACT_2_Z 8.0 //25.0 //**PJR - Needs to change since MANUAL_Z_HOME_POS is now actual bed distance
+    #define TOUCH_PROBE_RETRACT_2_X 40.00 // move down to retract probe
+    #define TOUCH_PROBE_RETRACT_2_Y -125.00
+    #define TOUCH_PROBE_RETRACT_2_Z 7.0 //25.0 //**PJR - Needs to change since MANUAL_Z_HOME_POS is now actual bed distance
     #define TOUCH_PROBE_RETRACT_2_FEEDRATE (HOMING_FEEDRATE_Z/4) //**PJR - Slow this down a little
-    #define TOUCH_PROBE_RETRACT_3_X 0.0  // return to 0,0,100
-    #define TOUCH_PROBE_RETRACT_3_Y 0.0
-    #define TOUCH_PROBE_RETRACT_3_Z 100.0
+    #define TOUCH_PROBE_RETRACT_3_X 40.0  // return to 0,0,100
+    #define TOUCH_PROBE_RETRACT_3_Y -125.0
+    #define TOUCH_PROBE_RETRACT_3_Z 20.0  // Move Z back up to prevent scraping nozzle on bed
     #define TOUCH_PROBE_RETRACT_3_FEEDRATE HOMING_FEEDRATE_Z
+    #define TOUCH_PROBE_RETRACT_4_X 0.0  // return to 0,0,100
+    #define TOUCH_PROBE_RETRACT_4_Y 0.0
+    #define TOUCH_PROBE_RETRACT_4_Z 100.0
+    #define TOUCH_PROBE_RETRACT_4_FEEDRATE HOMING_FEEDRATE_Z
 
   #else  // not AUTO_BED_LEVELING_GRID
     // with no grid, just probe 3 arbitrary points.  A simple cross-product
@@ -556,7 +560,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
   #define XY_TRAVEL_SPEED 8000         // X and Y axis travel speed between probes, in mm/min
 
   #define Z_RAISE_BEFORE_PROBING 100  //How much the extruder will be raised before traveling to the first probing point.
-  #define Z_RAISE_BETWEEN_PROBINGS 5  //How much the extruder will be raised when traveling from between next probing points
+  #define Z_RAISE_BETWEEN_PROBINGS 2.5  //How much the extruder will be raised when traveling from between next probing points
 
   //**PJR - Defines for the G30 Auto-calibration functions
   #define DEBUG_MESSAGES

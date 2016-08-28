@@ -1218,6 +1218,8 @@ static void engage_z_probe() {
 
     st_synchronize();
     #endif //SERVO_ENDSTOPS
+
+    delay(500);    // Add a delay so probe can have time to settle on switch
 }
 
 static void retract_z_probe() {
@@ -1262,6 +1264,14 @@ static void retract_z_probe() {
       destination[Y_AXIS] = TOUCH_PROBE_RETRACT_3_Y;
       destination[Z_AXIS] = TOUCH_PROBE_RETRACT_3_Z;
       feedrate = TOUCH_PROBE_RETRACT_3_FEEDRATE;
+      prepare_move_raw();
+    #endif
+    
+    #if defined(TOUCH_PROBE_RETRACT_4_X) && defined(TOUCH_PROBE_RETRACT_4_Y) && defined(TOUCH_PROBE_RETRACT_4_Z)
+      destination[X_AXIS] = TOUCH_PROBE_RETRACT_4_X;
+      destination[Y_AXIS] = TOUCH_PROBE_RETRACT_4_Y;
+      destination[Z_AXIS] = TOUCH_PROBE_RETRACT_4_Z;
+      feedrate = TOUCH_PROBE_RETRACT_4_FEEDRATE;
       prepare_move_raw();
     #endif
 
